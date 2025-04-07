@@ -1,0 +1,84 @@
+record(seq, 	 "$(S1){$(D1)}Cmd:Ini") {
+  field(PINI,    "YES")
+  field(DO1,     "11")
+  field(LNK1,    "$(S1){$(D1)}Cmd:Update.SCAN")
+  field(DO2,     "1")
+  field(LNK2,    "$(S1){$(D1)}Cmd:Update PP")
+  field(DO2,     "3.0")
+}
+
+record(bo,       "$(S1){$(D1)}Cmd:Update") {
+  field(DTYP,    "asynInt32")
+  field(OUT ,    "@asyn($(PORT),0)Update")
+  field(ZNAM,    "Update0")
+  field(ONAM,    "Update1")
+  field(IVOA,    "Don't drive outputs")
+  field(FLNK,    "$(S1){$(D1)}DI:Ep20-I")
+  info(autosaveFields_pass0, "SCAN")
+}
+
+record(stringin, "$(S1){$(D1)}ID:okSN-I") {
+  field(DTYP,    "asynOctetRead")
+  field(SCAN,    "10 second")
+  field(INP,     "@asyn($(PORT),0)okSNo")
+}
+
+record(stringin, "$(S1){$(D1)}ID:Model") {
+  field(DTYP,    "asynOctetRead")
+  field(SCAN,    "10 second")
+  field(INP ,    "@asyn($(PORT),0)Model")
+}
+
+record(stringin, "$(S1){$(D1)}ID:Device") {
+  field(DTYP,    "asynOctetRead")
+  field(SCAN,    "10 second")
+  field(INP ,    "@asyn($(PORT),0)ID")
+}
+
+record(longin,   "$(S1){$(D1)}ID:FWMajor") {
+  field(DTYP,    "asynInt32")
+  field(SCAN,    "10 second")
+  field(INP ,    "@asyn($(PORT),0)Major")
+}
+
+record(longin,   "$(S1){$(D1)}ID:FWMinor") {
+  field(DTYP,    "asynInt32")
+  field(SCAN,    "10 second")
+  field(INP ,    "@asyn($(PORT),0)Minor")
+}
+
+record(stringout,"$(S1){$(D1)}Val:BitDir-SP") {
+  field(DTYP,    "asynOctetWrite")
+  field(VAL,     "/bitfiles")
+  field(OUT ,    "@asyn($(PORT),0)Bit Directory")
+  field(PINI,    "YES")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(stringout,"$(S1){$(D1)}Val:BitFile-SP") {
+  field(DTYP,    "asynOctetWrite")
+  field(VAL,     "ARC5_XEM.bit")
+  field(OUT ,    "@asyn($(PORT),0)Bit File")
+  field(PINI,    "YES")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(bo,       "$(S1){$(D1)}Cmd:Load") {
+  field(DTYP,    "asynInt32")
+  field(OUT ,    "@asyn($(PORT),0)Load")
+  field(ZNAM,    "Load0")
+  field(ONAM,    "Load1")
+  field(IVOA,    "Don't drive outputs")
+  #field(FLNK,    "$(S1){$(D1)}Cmd:Init")
+}
+
+record(bo,       "$(S1){$(D1)}Rst-Cmd") {
+  field(DTYP,    "asynInt32")
+  field(OUT ,    "@asyn($(PORT),0)Reset")
+  field(ZNAM,    "Reset0")
+  field(ONAM,    "Reset1")
+  field(IVOA,    "Don't drive outputs")
+}
+
+
+

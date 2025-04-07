@@ -1,0 +1,115 @@
+record(longin,  "$(S1){$(D1)}DI:Ep20-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 20:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP20")
+# field(FLNK,   "$(S1){$(D1)}DI:Ep26-I_")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep21-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep21-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 21:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP21")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep22-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep22-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 22:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP22")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep23-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep23-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 23:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP23")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep24-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep24-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 24:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP24")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep25-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep25-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 25:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP25")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep26-I_")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep26-I_") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 26:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP26")
+  field(HIHI,   "1")
+  field(HHSV,   "MAJOR")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep26-Calc")
+}
+
+record(calcout, "$(S1){$(D1)}DI:Ep26-Calc") {
+  field(CALC,   "A|B")
+  field(INPA,   "$(S1){$(D1)}DI:Ep26-I_")
+# 0xf000 = 61440
+  field(INPB,   "61440")
+  field(OUT,    "$(S1){$(D1)}DI:Ep26-I PP")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep26-I") {
+  field(LOLO,   "65534")
+  field(LLSV,   "MAJOR")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep27-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep27-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 27:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP27")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep28-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep28-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 28:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP28")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep29-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep29-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 29:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP29")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep2A-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep2A-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 2A:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP2a")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep2B-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep2B-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 2B:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP2b")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep2C-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep2C-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 2C:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP2c")
+  field(FLNK,   "$(S1){$(D1)}DI:Ep2D-I")
+}
+
+record(longin,  "$(S1){$(D1)}DI:Ep2D-I") {
+  field(DTYP,   "asynInt32")
+  field(DESC,   "WireOut Ep 2D:")
+  field(INP ,   "@asyn($(PORT),0)WireOut EP2d")
+}
+
+

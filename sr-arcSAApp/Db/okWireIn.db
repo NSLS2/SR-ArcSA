@@ -1,0 +1,160 @@
+record(seq,     "$(S1){$(D1)}Cmd:Init") {
+  field(PINI,   "YES")
+  field(DO1,    "1")
+  field(LNK1,   "$(S1){$(D1)-Pot}Cmd:Val.PROC")
+  field(DLY1,   "2.0")
+  field(DO2,    "1")
+  field(LNK2,   "$(S1){$(D1)}Cmd:Init-Fo.PROC")
+  field(DLY2,   "3.0")
+}
+
+record(fanout,  "$(S1){$(D1)}Cmd:Init-Fo") {
+  field(LNK1,   "$(S1){$(D1)-Pot}Cmd:Val")
+  field(LNK2,   "$(S1){$(D1)-Pot}R:SP")
+  field(LNK3,   "$(S1){$(D1)}DO:Ep02-SP")
+  field(LNK4,   "$(S1){$(D1)}DO:Ep03-SP")
+  field(LNK5,   "$(S1){$(D1)}DO:Ep04-SP")
+  field(LNK6,   "$(S1){$(D1)}DO:Ep05-SP")
+  field(LNK7,   "$(S1){$(D1)}DO:Ep06-SP")
+  field(LNK8,   "$(S1){$(D1)}DO:Ep07-SP")
+}
+
+record(bo,      "$(S1){$(D1)}Rst:Cmd") {
+  field(ZNAM,   "Idle")
+  field(ONAM,   "Reset")
+  field(HIGH,   "1")
+  field(FLNK,   "$(S1){$(D1)}DO:Ep00-Calc")
+}
+
+record(bo,      "$(S1){$(D1)}Trig:DigPot") {
+  field(ZNAM,   "Idle")
+  field(ONAM,   "Trigger")
+  field(HIGH,   "1")
+  field(FLNK,   "$(S1){$(D1)}DO:Ep00-Calc")
+}
+
+record(calcout, "$(S1){$(D1)}DO:Ep00-Calc") {
+  field(CALC,   "(A<<15)+(B<<14)")
+  field(INPA,   "$(S1){$(D1)}Rst:Cmd")
+  field(INPB,   "$(S1){$(D1)}Trig:DigPot")
+  field(OUT,    "$(S1){$(D1)}DO:Ep00-SP PP")
+}
+
+record(longout, "$(S1){$(D1)}DO:Ep00-SP") {
+  field(DESC,   "WireIn 0x00:")
+  field(DTYP,   "asynInt32")
+  field(OUT ,   "@asyn($(PORT),0)WireIn EP00")
+  info(autosaveFields_pass1, "VAL")
+}
+
+record(mbbo,    "$(S1){$(D1)-Pot}Cmd:Val") {
+  field(ZRVL,   "0")
+  field(ZRST,   "Pot config")
+  field(ONVL,   "1")
+  field(ONST,   "Sensitivity to Reg")
+  field(TWVL,   "2")
+  field(TWST,   "Threshold to Reg")
+  field(THVL,   "33")
+  field(THST,   "Sensitivity to Mem")
+  field(FRVL,   "34")
+  field(FRST,   "Threshold to Mem")
+  field(FVVL,   "35")
+  field(FVST,   "Sens. and Threshold")
+  field(SXVL,   "170")
+  field(SXST,   "Test")
+  field(FLNK,   "$(S1){$(D1)-Pot}Cmd:SP")
+  info(autosaveFields_pass1, "VAL")
+}
+
+record(longout, "$(S1){$(D1)-Pot}Cmd:SP") {
+  field(DESC,   "Com Digital Pot:")
+  field(OMSL,   "closed_loop")
+  field(DOL,    "$(S1){$(D1)-Pot}Cmd:Val.RVAL")
+  field(DRVL,   "0")
+  field(DRVH,   "255")
+  field(FLNK,   "$(S1){$(D1)}DO:Ep01-Calc")
+}
+
+record(longout, "$(S1){$(D1)-Pot}R:SP") {
+  field(DESC,   "Pot Resistance:")
+  field(DRVL,   "0")
+  field(DRVH,   "255")
+  field(LOPR,   "0")
+  field(HOPR,   "255")
+  field(FLNK,   "$(S1){$(D1)}DO:Ep01-Calc")
+  info(autosaveFields_pass1, "VAL")
+}
+
+record(calcout, "$(S1){$(D1)}DO:Ep01-Calc") {
+  field(CALC,   "A+(B<<8)")
+  field(INPA,   "$(S1){$(D1)-Pot}Cmd:SP")
+  field(INPB,   "$(S1){$(D1)-Pot}R:SP")
+  field(OUT ,   "$(S1){$(D1)}DO:Ep01-SP PP")
+}
+
+record(longout, "$(S1){$(D1)}DO:Ep01-SP") {
+  field(DESC,   "WireIn 0x01:")
+  field(DTYP,   "asynInt32")
+  field(OUT ,   "@asyn($(PORT),0)WireIn EP01")
+}
+########################################################
+########################################################
+########################################################
+
+record(longout, "$(S1){$(D1)}DO:Ep02-SP") {
+  field(DESC,   "WireIn 0x02:")
+  field(HOPR,   "25")
+  field(LOPR,   "0")
+  field(DRVH,   "25")
+  field(DRVL,   "0")
+  field(DTYP,   "asynInt32")
+  field(OUT ,   "@asyn($(PORT),0)WireIn EP02")
+  info(autosaveFields_pass1, "VAL")
+}
+
+record(longout, "$(S1){$(D1)}DO:Ep03-SP") {
+  field(DESC,   "WireIn 0x03:")
+  field(HOPR,   "25")
+  field(LOPR,   "0")
+  field(DRVH,   "25")
+  field(DRVL,   "0")
+  field(DTYP,   "asynInt32")
+  field(OUT ,   "@asyn($(PORT),0)WireIn EP03")
+  info(autosaveFields_pass1, "VAL")
+}
+
+record(longout, "$(S1){$(D1)}DO:Ep04-SP") {
+  field(DESC,   "WireIn 0x04:")
+  field(HOPR,   "25")
+  field(LOPR,   "0")
+  field(DRVH,   "25")
+  field(DRVL,   "0")
+  field(DTYP,   "asynInt32")
+  field(OUT ,   "@asyn($(PORT),0)WireIn EP04")
+  info(autosaveFields_pass1, "VAL")
+}
+
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+record(longout, "$(S1){$(D1)}DO:Ep05-SP") {
+  field(DESC,   "WireIn 0x05:")
+  field(DTYP,   "asynInt32")
+  field(OUT ,   "@asyn($(PORT),0)WireIn EP05")
+  info(autosaveFields_pass1, "VAL")
+}
+
+record(longout, "$(S1){$(D1)}DO:Ep06-SP") {
+  field(DESC,   "WireIn 0x06:")
+  field(DTYP,   "asynInt32")
+  field(OUT ,   "@asyn($(PORT),0)WireIn EP06")
+  info(autosaveFields_pass1, "VAL")
+}
+
+record(longout, "$(S1){$(D1)}DO:Ep07-SP") {
+  field(DESC,   "WireIn 0x07:")
+  field(DTYP,   "asynInt32")
+  field(OUT ,   "@asyn($(PORT),0)WireIn EP07")
+  info(autosaveFields_pass1, "VAL")
+}
+
+
