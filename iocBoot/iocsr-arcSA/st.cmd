@@ -7,7 +7,6 @@
 
 cd "${TOP}"
 
-epicsEnvSet("ENGINEER","jtagger x8060")
 epicsEnvSet("LOCATION","RF BLDG/CAGE")
 epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST","NO")
 epicsEnvSet("EPICS_CA_ADDR_LIST","10.0.153.255")

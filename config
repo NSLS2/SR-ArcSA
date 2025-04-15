@@ -1,0 +1,11 @@
+NAME=SR-ArcSA
+
+PORT=4067
+
+USER=softioc
+
+HOST=rfctrl01-vm
+
+CHDIR="$CHDIR/iocBoot/iocsr-arcSA"
+EXEC="$CHDIR/st.cmd"
+

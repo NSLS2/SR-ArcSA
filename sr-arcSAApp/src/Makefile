@@ -54,8 +54,8 @@ arcSAApp_SRCS += arcSPort.cpp
 ifdef EPICS_QSRV_MAJOR_VERSION
     sr-arcSA_LIBS += qsrv
     sr-arcSA_LIBS += $(EPICS_BASE_PVA_CORE_LIBS)
-    sr-arcSA_DBD += PVAServerRegister.dbd
-    sr-arcSA_DBD += qsrv.dbd
+    sr-arcSA_DBD  += PVAServerRegister.dbd
+    sr-arcSA_DBD  += qsrv.dbd
 endif
 
 # Finally link to the EPICS Base libraries
