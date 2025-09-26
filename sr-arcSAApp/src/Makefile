@@ -29,7 +29,7 @@ sr-arcSA_DBD += reccaster.dbd
 USR_CPPFLAGS += -I$(OK)  -D_X86_64_ -DUNIX -DLINUX
 
 # Add all the support libraries needed by this IOC
-sr-arcSA_LIBS += arcSAApp asyn autosave devIocStats calc sscan caPutLog seq pv reccaster pvDatabase qsrv pvaClient pvAccessIOC pvAccess pvAccessCA nt pvData
+sr-arcSA_LIBS += arcSAApp asyn autosave devIocStats calc sscan caPutLog seq pv reccaster
 
 sr-arcSA_SYS_LIBS += okFrontPanel
 
@@ -49,14 +49,6 @@ LIBRARY_IOC += arcSAApp
 
 arcSAApp_SRCS += okiface.cpp
 arcSAApp_SRCS += arcSPort.cpp
-
-# Link QSRV (pvAccess Server) if available
-ifdef EPICS_QSRV_MAJOR_VERSION
-    sr-arcSA_LIBS += qsrv
-    sr-arcSA_LIBS += $(EPICS_BASE_PVA_CORE_LIBS)
-    sr-arcSA_DBD  += PVAServerRegister.dbd
-    sr-arcSA_DBD  += qsrv.dbd
-endif
 
 # Finally link to the EPICS Base libraries
 sr-arcSA_LIBS += $(EPICS_BASE_IOC_LIBS)

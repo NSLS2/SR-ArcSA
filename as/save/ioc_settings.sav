@@ -1,4 +1,4 @@
-# autosave R5.3	Automatically generated - DO NOT MODIFY - 250626-125818
+# autosave R5.3	Automatically generated - DO NOT MODIFY - 250926-091347
 RF-CT{iocsr-arcSA}:CA_CLNT_CNT.HOPR 200
 RF-CT{iocsr-arcSA}:CA_CLNT_CNT.LOPR 0
 RF-CT{iocsr-arcSA}:CA_CLNT_CNT.HIHI 175
@@ -62,7 +62,7 @@ RF-CT{iocsr-arcSA}:FD_FREE.LOW 20
 RF-CT{iocsr-arcSA}:FD_FREE.LOLO 5
 RF-CT{iocsr-arcSA}:FD_FREE.LSV 1
 RF-CT{iocsr-arcSA}:FD_FREE.LLSV 2
-RF-CT{iocsr-arcSA}:START_CNT.VAL 68
+RF-CT{iocsr-arcSA}:START_CNT.VAL 70
 SR-RF{ArcS:A}Val:BitDir-SP.VAL /bitfiles
 SR-RF{ArcS:A}Val:BitFile-SP.VAL ARC5_XEM.bit
 <END>
